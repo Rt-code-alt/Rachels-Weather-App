@@ -109,3 +109,10 @@ li {
 .fa-long-arrow-alt-up {
   color: #00796b;
 }
+.github-link {
+  display: block;
+  text-align: center;
+  font-style: 8px;
+  font-weight: 200;
+  font-family: "Lato", sans-serif;
+}
