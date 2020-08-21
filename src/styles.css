@@ -1,0 +1,111 @@
+.card {
+  font-family: "Titillium Web", sans-serif;
+  width: 80%;
+  padding: 0px 5px;
+  margin: 0 auto;
+  margin-top: 20px;
+  display: block;
+  background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+}
+.fa-search-location {
+  font-size: 20px;
+  color: #ff5722;
+  padding-top: 8px;
+}
+.temp-options {
+  display: block;
+  position: relative;
+  top: 20px;
+  font-family: "Lato", sans-serif;
+  text-align: right;
+}
+h2 {
+  margin-top: 20px;
+  font-weight: 900;
+  font-size: 50px;
+  color: #00796b;
+  text-transform: capitalize;
+}
+h4 {
+  font-weight: 700;
+  font-size: 30px;
+  color: #757575;
+}
+.time-and-date {
+  font-size: 15px;
+  font-style: bold;
+  color: #ff5722;
+  text-transform: uppercase;
+}
+.weather-today {
+  font-family: "Lato", sans-serif;
+  font-size: 60px;
+  font-weight: 300;
+  color: #212121;
+}
+.fa-sun {
+  color: #f7e031;
+}
+#description {
+  text-transform: capitalize;
+}
+
+.units {
+  position: relative;
+  top: -34px;
+  font-family: "Lato", sans-serif;
+  font-size: 13px;
+}
+.temp-range-today,
+.wind-today,
+.rain-today {
+  font-size: 15px;
+  font-weight: 100;
+  color: #212121 0.7;
+}
+.today-forecast {
+  margin-bottom: 0;
+}
+
+.days {
+  font-family: "Lato", sans-serif;
+  width: 100%;
+  background: #bdbdbd;
+  margin-bottom: 2px;
+}
+.day-week {
+  font-size: 17px;
+  font-weight: bold;
+  color: #00796b;
+  font-family: "Titillium Web", sans-serif;
+  text-align: center;
+}
+.forecast-otherdays {
+  font-size: 13px;
+  text-align: center;
+  font-style: italic;
+}
+li {
+  list-style-type: none;
+  margin-inline-start: 0px;
+}
+ul,
+li {
+  margin-left: 0;
+  padding: 4px 0px;
+  font-size: 12px;
+  font-weight: 200;
+  color: #212121 0.7;
+}
+.fa-cloud-sun {
+  display: block;
+  margin: 0 auto;
+  color: #ff5722;
+  font-size: 30px;
+}
+.fa-umbrella,
+.fa-wind,
+.fa-long-arrow-alt-down,
+.fa-long-arrow-alt-up {
+  color: #00796b;
+}
