@@ -50,6 +50,7 @@ function search(event) {
   let apiKey = "9323723efb08066b7b3d194977c6162d";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityChosen}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayWeather);
+  axios.get(apiUrl).then(displayDate);
 }
 
 let form = document.querySelector("#location-search");
@@ -98,49 +99,55 @@ celsius.addEventListener("click", changeToCelsius);
 
 // time and date
 
-let now = new Date();
-let currentTime = document.querySelector(".time-and-date");
+function formatDate(timestamp) {
+  let now = new Date(timestamp);
 
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-let day = days[now.getDay()];
-let date = now.getDate();
-let months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
-let month = months[now.getMonth()];
-let hours = now.getHours();
-if (hours < 10) {
-  hours = `0${hours}`;
-}
-let minutes = now.getMinutes();
-if (minutes < 10) {
-  minutes = `0${minutes}`;
-}
-let tt = "";
-if (hours >= 12) {
-  tt = "PM";
-} else {
-  tt = "AM";
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[now.getDay()];
+  let date = now.getDate();
+  let months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  let month = months[now.getMonth()];
+  let hours = now.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = now.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  minutes = minutes < 10 ? "0" + minutes : minutes;
+  let tt = "";
+  if (hours >= 12) {
+    tt = "PM";
+  } else {
+    tt = "AM";
+  }
+
+  return `${day} ${date}th ${month} ${hours}:${minutes} ${tt}`;
 }
 
-minutes = minutes < 10 ? "0" + minutes : minutes;
-currentTime.innerHTML = `${day} ${date}th ${month} ${hours}:${minutes} ${tt}`;
+function displayDate(response) {
+  let dateElement = document.querySelector("#time-and-date");
+  dateElement.innerHTML = formatDate(response.data.dt * 1000);
+}
