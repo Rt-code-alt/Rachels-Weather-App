@@ -48,36 +48,44 @@
 
           <h2 id="city-name">Sydney</h2>
           <h4 class="card-subtitle mb-2 text-muted" id="country">AUSTRALIA</h4>
-          <p class="time-and-date"></p>
-          <p class="weather-today">
-            <img src="#" id="current-weather-icon" alt="" />
-            <span id="description"> Sunny </span
-            ><span class="degrees" id="degrees">19</span>
-            <span class="units">
-              <a href="#" id="celsius-link">°C</a> |
-              <a href="#" id="fahrenheit-link">°F</a>
-            </span>
-          </p>
-          <div class="row today-forecast">
-            <div class="col-2">
-              <p class="temp-range-today">
-                <i class="fas fa-long-arrow-alt-down"></i>
-                <span id="temperatureTodayMin">11</span>°c
-                <i class="fas fa-long-arrow-alt-up"></i>
-                <span id="temperatureTodayMax">21</span>°c
+          <p class="time-and-date" id="time-and-date"></p>
+          <div class="row">
+            <div class="col-6">
+              <p class="weather-today">
+                <img src="#" id="current-weather-icon" alt="" />
+                <span id="description"> Sunny </span>
+                <span class="degrees" id="degrees">19</span>
+                <span class="units">
+                  <a href="#" id="celsius-link">°C</a> |
+                  <a href="#" id="fahrenheit-link">°F</a>
+                </span>
               </p>
             </div>
-            <div class="col-2">
-              <p class="wind-today">
-                <i class="fas fa-wind"></i>
-                <span id="windSpeedToday">30</span>km/h wind speed
-              </p>
+
+            <div class="col-6 today-forecast">
+
+              <ul>
+                
+                <li class="temp-range-today">
+                  <i class="fas fa-long-arrow-alt-down"></i>
+                  <span id="temperatureTodayMin">11</span>°c
+                  <i class="fas fa-long-arrow-alt-up"></i>
+                  <span id="temperatureTodayMax">21</span>°c
+                </li>
+                <li class="wind-today">
+                  <i class="fas fa-wind"></i>
+                  <span id="windSpeedToday">30</span>km/h wind speed
+                </li>
+                <li class="rain-today">
+                  <i class="fas fa-umbrella"></i>
+                  <span id="humidityToday">0</span>% humidity
+                </li>
+              </ul>
+
             </div>
-            <div class="col-3">
-              <p class="rain-today">
-                <i class="fas fa-umbrella"></i>
-                <span id="humidityToday">0</span>% humidity
-              </p>
+
+            </div>
+
             </div>
           </div>
         </div>
