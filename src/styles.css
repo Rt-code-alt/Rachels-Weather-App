@@ -73,35 +73,36 @@ h4 {
   background: #bdbdbd;
   margin-bottom: 2px;
 }
-.day-week {
-  font-size: 17px;
-  font-weight: bold;
-  color: #00796b;
-  font-family: "Titillium Web", sans-serif;
-  text-align: center;
-}
-.forecast-otherdays {
+.otherdays {
   font-size: 13px;
-  text-align: center;
+  font-weight: 100;
+  color: #212121 0.7;
+  font-family: "Lato", sans-serif;
+}
+.description-otherdays {
   font-style: italic;
+}
+.day-week {
+  font-weight: 900;
+  color: #00796b;
+}
+
+.first-day,
+.second-day,
+.third-day,
+.fourth-day,
+.fifth-day {
+  margin: 10px;
 }
 li {
   list-style-type: none;
   margin-inline-start: 0px;
 }
-ul,
-li {
-  margin-left: 0;
-  padding: 4px 0px;
-  font-size: 12px;
-  font-weight: 200;
-  color: #212121 0.7;
-}
 .fa-cloud-sun {
   display: block;
   margin: 0 auto;
   color: #ff5722;
-  font-size: 30px;
+  font-size: 15px;
 }
 .fa-umbrella,
 .fa-wind,
