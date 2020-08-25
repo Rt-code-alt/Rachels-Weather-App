@@ -1,7 +1,60 @@
-function displayWeather(response) {
-  //let weatherIcon = document.querySelector("#todayWeatherIcon");
-  //weatherIcon.innerHTML = `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`;
+// time and date
 
+function formatHours(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  minutes = minutes < 10 ? "0" + minutes : minutes;
+  let tt = "";
+  if (hours >= 12) {
+    tt = "PM";
+  } else {
+    tt = "AM";
+  }
+  return `${hours}:${minutes} ${tt}`;
+}
+
+function formatDate(timestamp) {
+  let now = new Date(timestamp);
+
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[now.getDay()];
+  let date = now.getDate();
+  let months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  let month = months[now.getMonth()];
+
+  return `${day} ${date} ${month}`;
+}
+
+function displayWeather(response) {
   let currentWeatherIcon = document.querySelector("#current-weather-icon");
   currentWeatherIcon.setAttribute(
     "src",
@@ -36,25 +89,30 @@ function displayWeather(response) {
   let cityName = document.querySelector("#city-name");
   cityName.innerHTML = response.data.name;
 
-  // to find any other variable I want to show console.log(response.data);
+  let dateElement = document.querySelector("#date");
+  dateElement.innerHTML = formatDate(response.data.dt * 1000);
+
+  let timeElement = document.querySelector("#time");
+  timeElement.innerHTML = formatHours(response.data.dt * 1000);
 }
 
 // location search engine
 
-function search(event) {
-  event.preventDefault();
-  let cityInput = document.querySelector(".form-control");
-  let cityChosen = `${cityInput.value}`;
-  let h2 = document.querySelector("#city-name");
-  h2.innerHTML = cityChosen;
+function search(city) {
   let apiKey = "9323723efb08066b7b3d194977c6162d";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityChosen}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayWeather);
   axios.get(apiUrl).then(displayDate);
 }
 
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInput = document.querySelector(".form-control");
+  search(cityInput.value);
+}
+
 let form = document.querySelector("#location-search");
-form.addEventListener("submit", search);
+form.addEventListener("submit", handleSubmit);
 
 // current location
 
@@ -101,58 +159,3 @@ function changeToCelsius(event) {
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", changeToCelsius);
-
-// time and date
-
-function formatDate(timestamp) {
-  let now = new Date(timestamp);
-
-  let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-  let day = days[now.getDay()];
-  let date = now.getDate();
-  let months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-  let month = months[now.getMonth()];
-  let hours = now.getHours();
-  if (hours < 10) {
-    hours = `0${hours}`;
-  }
-  let minutes = now.getMinutes();
-  if (minutes < 10) {
-    minutes = `0${minutes}`;
-  }
-  minutes = minutes < 10 ? "0" + minutes : minutes;
-  let tt = "";
-  if (hours >= 12) {
-    tt = "PM";
-  } else {
-    tt = "AM";
-  }
-
-  return `${day} ${date}th ${month} ${hours}:${minutes} ${tt}`;
-}
-
-function displayDate(response) {
-  let dateElement = document.querySelector("#time-and-date");
-  dateElement.innerHTML = formatDate(response.data.dt * 1000);
-}

@@ -35,6 +35,9 @@ h4 {
   font-size: 15px;
   font-style: bold;
   color: #ff5722;
+}
+
+.time-and-date:first-letter {
   text-transform: uppercase;
 }
 .weather-today {
