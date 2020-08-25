@@ -23,7 +23,7 @@ h2 {
   margin-top: 20px;
   font-weight: 900;
   font-size: 50px;
-  color: #00796b;
+  color: #48a3b8;
   text-transform: capitalize;
 }
 h4 {
@@ -79,7 +79,7 @@ h4 {
 }
 .day-week {
   font-weight: 900;
-  color: #00796b;
+  color: #48a3b8;
 }
 
 .first-day,
@@ -103,7 +103,7 @@ li {
 .fa-wind,
 .fa-long-arrow-alt-down,
 .fa-long-arrow-alt-up {
-  color: #00796b;
+  color: #48a3b8;
 }
 .github-link {
   display: block;
