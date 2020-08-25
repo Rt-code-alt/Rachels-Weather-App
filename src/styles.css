@@ -112,3 +112,11 @@ li {
   font-weight: 200;
   font-family: "Lato", sans-serif;
 }
+
+.weather-today .active {
+  color: black;
+  cursor: default;
+}
+.weather-today .active:hover {
+  text-decoration: none;
+}
