@@ -26,19 +26,20 @@
     <div class="container">
       <div class="card app">
         <div class="card-body">
-          <form id="location-search">
+          <form id="location-search" class="mb-3">
             <div class="row">
               <div class="col-1">
               <i class="fas fa-search-location"></i>
               </div>
               <div class="col-6">
                 <input
-                  type="text"
-                  id="form-control"
-                  placeholder="Search for location...     "/>
+                  type="search"
+                  class="form-control"
+                  placeholder="Search for location... "
+                  autocomplete="off"/>
               </div>
               <div class="col-2"> 
-                <input type="submit" value="Search" class="search" />
+                <input type="submit" value="Search" class="btn btn-primary w-100" />
               </div>
               <div class="col-3">
                 <button id="current-location">

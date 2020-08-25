@@ -43,7 +43,7 @@ function displayWeather(response) {
 
 function search(event) {
   event.preventDefault();
-  let cityInput = document.querySelector("#form-control");
+  let cityInput = document.querySelector(".form-control");
   let cityChosen = `${cityInput.value}`;
   let h2 = document.querySelector("#city-name");
   h2.innerHTML = cityChosen;
