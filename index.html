@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Rachel's Weather App</title>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -56,8 +56,8 @@
             <div class="col-7">
               <p class="weather-today">
                 <img src="#" id="current-weather-icon" alt="" />
-                <span id="description"> Sunny </span>
-                <span class="degrees" id="degrees">19</span>
+                <span id="description"></span>
+                <span class="degrees" id="degrees"></span>
                 <span class="units">
                   <a href="#" id="celsius-link" class="active">°C</a> |
                   <a href="#" id="fahrenheit-link">°F</a>
@@ -68,20 +68,22 @@
             <div class="col-5 today-forecast">
 
               <ul>
-                
                 <li class="temp-range-today">
+                  <span><strong>Temperature:</strong></span>
                   <i class="fas fa-long-arrow-alt-down"></i>
                   <span id="temperatureTodayMin">11</span>°c
                   <i class="fas fa-long-arrow-alt-up"></i>
                   <span id="temperatureTodayMax">21</span>°c
                 </li>
                 <li class="wind-today">
+                  <span><strong>Wind speed:</strong></span> 
                   <i class="fas fa-wind"></i>
-                  <span id="windSpeedToday">30</span>km/h wind speed
+                  <span id="windSpeedToday">30</span>km/h
                 </li>
-                <li class="rain-today">
-                  <i class="fas fa-umbrella"></i>
-                  <span id="humidityToday">0</span>% humidity
+                <li class="humidity-today">
+                  <span><strong>Humidity:</strong></span>
+                  <i class="fas fa-tint"></i>
+                  <span id="humidityToday">0</span>% 
                 </li>
               </ul>
             </div>

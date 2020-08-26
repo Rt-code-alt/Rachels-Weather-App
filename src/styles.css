@@ -1,3 +1,6 @@
+body {
+  background: #decdc3;
+}
 .card {
   font-family: "Titillium Web", sans-serif;
   width: 80%;
@@ -7,11 +10,7 @@
   display: block;
   background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
 }
-.fa-search-location {
-  font-size: 20px;
-  color: #ff5722;
-  padding-top: 8px;
-}
+
 .temp-options {
   display: block;
   position: relative;
@@ -19,6 +18,7 @@
   font-family: "Lato", sans-serif;
   text-align: right;
 }
+
 h2 {
   margin-top: 20px;
   font-weight: 900;
@@ -34,7 +34,7 @@ h4 {
 .time-and-date {
   font-size: 15px;
   font-style: bold;
-  color: #ff5722;
+  color: #ea5455;
 }
 
 .time-and-date:first-letter {
@@ -45,9 +45,10 @@ h4 {
   font-size: 45px;
   font-weight: 300;
   color: #212121;
+}
+.weather-today:first-letter {
   text-transform: capitalize;
 }
-
 .units {
   position: relative;
   top: -34px;
@@ -56,7 +57,7 @@ h4 {
 }
 .temp-range-today,
 .wind-today,
-.rain-today {
+.humidity-today {
   font-size: 15px;
   font-weight: 100;
   color: #212121 0.7;
@@ -71,41 +72,15 @@ h4 {
   background: #bdbdbd;
   margin-bottom: 2px;
 }
-.otherdays {
-  font-size: 13px;
-  font-weight: 100;
-  color: #212121 0.7;
-  font-family: "Lato", sans-serif;
-}
-.description-otherdays {
-  font-style: italic;
-}
-.day-week {
-  font-weight: 900;
-  color: #48a3b8;
-}
 
-.first-day,
-.second-day,
-.third-day,
-.fourth-day,
-.fifth-day {
-  margin: 10px;
-}
 li {
   list-style-type: none;
   margin-inline-start: 0px;
 }
-.fa-cloud-sun {
-  display: block;
-  margin: 0 auto;
-  color: #ff5722;
+#current-weather-icon {
   font-size: 15px;
 }
-.fa-umbrella,
-.fa-wind,
-.fa-long-arrow-alt-down,
-.fa-long-arrow-alt-up {
+.fas {
   color: #48a3b8;
 }
 .github-link {
@@ -122,4 +97,9 @@ li {
 }
 .weather-today .active:hover {
   text-decoration: none;
+}
+.fa-search-location {
+  font-size: 20px;
+  color: #ea5455;
+  padding-top: 8px;
 }
