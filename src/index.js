@@ -11,7 +11,6 @@ function formatHours(timestamp) {
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
-  minutes = minutes < 10 ? "0" + minutes : minutes;
   let tt = "";
   if (hours >= 12) {
     tt = "PM";
@@ -24,34 +23,26 @@ function formatHours(timestamp) {
 function formatDate(timestamp) {
   let now = new Date(timestamp);
 
-  let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   let day = days[now.getDay()];
   let date = now.getDate();
   let months = [
-    "January",
-    "February",
-    "March",
-    "April",
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
     "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
   ];
   let month = months[now.getMonth()];
 
-  return `${day} ${date} ${month}`;
+  return `${day} ${date} ${month} `;
 }
 
 function displayWeather(response) {
@@ -106,14 +97,14 @@ function displayForecast(response) {
   for (let index = 0; index < 6; index++) {
     forecast = response.data.list[index];
     forecastElement.innerHTML += `
-    <div class="col-2">
+    <div class="col-2 forecast">
         <p>
           ${formatHours(forecast.dt * 1000)}
         </p>
         <img src="https://openweathermap.org/img/wn/${
           forecast.weather[0].icon
-        }@2x.png" />
-        <div class="weather-forecast-temp">
+        }@2x.png" width="100%" />
+        <div>
             ${Math.round(forecast.main.temp_min)}° <strong>${Math.round(
       forecast.main.temp_max
     )}°</strong>

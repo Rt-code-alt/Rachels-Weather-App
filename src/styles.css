@@ -1,14 +1,16 @@
 body {
   background: #decdc3;
+  width: 100%;
+  margin-top: 5%;
 }
 .card {
   font-family: "Titillium Web", sans-serif;
-  width: 80%;
-  padding: 0px 5px;
-  margin: 0 auto;
-  margin-top: 20px;
   display: block;
-  background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+  padding: 15px 0px;
+  margin: 0 auto;
+  max-width: 800px;
+  background: #dee0e2;
+  border-radius: 10px;
 }
 
 .temp-options {
@@ -29,7 +31,7 @@ h2 {
 h4 {
   font-weight: 700;
   font-size: 30px;
-  color: #757575;
+  color: #6c757d;
 }
 .time-and-date {
   font-size: 15px;
@@ -59,18 +61,18 @@ h4 {
 .wind-today,
 .humidity-today {
   font-size: 15px;
-  font-weight: 100;
+  font-weight: 200;
   color: #212121 0.7;
 }
 .today-forecast {
   margin-bottom: 0;
 }
 
-.days {
-  font-family: "Lato", sans-serif;
-  width: 100%;
-  background: #bdbdbd;
-  margin-bottom: 2px;
+.forecast {
+  text-align: center;
+  font-size: 15px;
+  font-weight: 200;
+  color: #212121 0.7;
 }
 
 li {
@@ -101,5 +103,5 @@ li {
 .fa-search-location {
   font-size: 20px;
   color: #ea5455;
-  padding-top: 8px;
+  padding-top: 9px;
 }
