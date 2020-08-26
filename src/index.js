@@ -96,6 +96,8 @@ function displayForecast(response) {
 
   for (let index = 0; index < 6; index++) {
     forecast = response.data.list[index];
+    let minForecast = forecast.main.temp_min;
+    let maxForecast = forecast.main.temp_max;
     forecastElement.innerHTML += `
     <div class="col-2 forecast">
         <p>
@@ -104,10 +106,12 @@ function displayForecast(response) {
         <img src="https://openweathermap.org/img/wn/${
           forecast.weather[0].icon
         }@2x.png" width="100%" />
-        <div>
-            ${Math.round(forecast.main.temp_min)}° <strong>${Math.round(
-      forecast.main.temp_max
-    )}°</strong>
+        <div><span id="min-hourly-degrees">
+            ${Math.round(
+              minForecast
+            )}<span>° <span id="max-hourly-degrees">${Math.round(
+      maxForecast
+    )}</span>°
         </div>
     </div>`;
   }
@@ -165,10 +169,33 @@ function changeToFarenheit(event) {
   farenhenheitDegrees.innerHTML = `${fTemp}`;
 }
 
+function changeForecastToFarenheit(event) {
+  event.preventDefault();
+  let minFarenhenheitDegrees = document.querySelector("#min-hourly-degrees");
+  celsiusLink.classList.remove("active");
+  farenheitLink.classList.add("active");
+  minFarenhenheitDegrees.innerHTML = `${Math.round(
+    (minForecast * 9) / 5 + 32
+  )}`;
+
+  let maxFarenhenheitDegrees = document.querySelector("#max-hourly-degrees");
+  celsiusLink.classList.remove("active");
+  farenheitLink.classList.add("active");
+  maxFarenhenheitDegrees.innerHTML = `${Math.round(
+    (maxForecast * 9) / 5 + 32
+  )}`;
+}
+
 let celsiusTemperature = null;
+let minForecast = null;
+let maxForecast = null;
 
 let farenheitLink = document.querySelector("#fahrenheit-link");
-farenheitLink.addEventListener("click", changeToFarenheit);
+farenheitLink.addEventListener(
+  "click",
+  changeToFarenheit,
+  changeForecastToFarenheit
+);
 
 // farenheit > celsius conversion
 function changeToCelsius(event) {
@@ -179,5 +206,18 @@ function changeToCelsius(event) {
   celsiusDegrees.innerHTML = Math.round(celsiusTemperature);
 }
 
+function changeForecastToCelsius(event) {
+  event.preventDefault();
+  let minCelsiusDegrees = document.querySelector("#min-hourly-degrees");
+  farenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
+  minCelsiusDegrees.innerHTML = Math.round(minForecast);
+
+  let maxCelsiusDegrees = document.querySelector("#max-hourly-degrees");
+  farenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
+  maxCelsiusDegrees.innerHTML = Math.round(maxForecast);
+}
+
 let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", changeToCelsius);
+celsiusLink.addEventListener("click", changeToCelsius, changeForecastToCelsius);

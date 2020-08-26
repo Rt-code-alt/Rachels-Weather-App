@@ -74,7 +74,9 @@ h4 {
   font-weight: 200;
   color: #212121 0.7;
 }
-
+#max-hourly-degrees {
+  font-weight: bold;
+}
 li {
   list-style-type: none;
   margin-inline-start: 0px;
