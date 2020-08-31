@@ -93,7 +93,6 @@ function displayForecast(response) {
   let forecastElement = document.querySelector("#hourly-forecast");
   forecastElement.innerHTML = null;
   let forecast = null;
-
   for (let index = 0; index < 6; index++) {
     forecast = response.data.list[index];
     let minForecast = forecast.main.temp_min;
@@ -109,7 +108,7 @@ function displayForecast(response) {
         <div><span class="min-hourly-degrees">
             ${Math.round(
               minForecast
-            )}<span>° <span class="max-hourly-degrees">${Math.round(
+            )}</span>° <span class="max-hourly-degrees">${Math.round(
       maxForecast
     )}</span>°
         </div>
@@ -161,13 +160,19 @@ currentLocationButton.addEventListener("click", localPosition);
 
 // celsius > fareinheit conversion
 
-function changeForecastToFarenheit(event) {
-  event.preventDefault();
-  let forecastItems = document.querySelectorAll(".min-hourly-degrees, .max-hourly-degrees");
-  forecastItems.forEach(function(item) {
-  let currentTemp = item.innerHTML;
-    item.innerHTML = `${Math.round((currentTemp * 9) / 5 + 32)}`
+function changeForecastToFarenheit() {
+  let minForecastItems = document.querySelectorAll(".min-hourly-degrees");
+  minForecastItems.forEach(function (item) {
+    let currentTemp = item.innerHTML;
+    console.log(currentTemp);
+    item.innerHTML = `${Math.round((currentTemp * 9) / 5 + 32)}`;
   });
+  let maxForecastItems = document.querySelectorAll(".max-hourly-degrees");
+  maxForecastItems.forEach(function (item) {
+    let currentTemp = item.innerHTML;
+    item.innerHTML = `${Math.round((currentTemp * 9) / 5 + 32)}`;
+  });
+}
 
 function changeToFarenheit(event) {
   event.preventDefault();
@@ -183,20 +188,23 @@ function changeToFarenheit(event) {
 let celsiusTemperature = null;
 let minForecast = null;
 
-
 let farenheitLink = document.querySelector("#fahrenheit-link");
 farenheitLink.addEventListener("click", changeToFarenheit);
 
 // farenheit > celsius conversion
 
-function changeForecastToCelsius(event) {
-  event.preventDefault();
-  let forecastItems = document.querySelectorAll(".min-hourly-degrees, .max-hourly-degrees");
-  forecastItems.forEach(function (item) {
+function changeForecastToCelsius() {
+  let minForecastItems = document.querySelectorAll(".min-hourly-degrees");
+  minForecastItems.forEach(function (item) {
     let currentTemp = item.innerHTML;
-    item.innerHTML = `${currentTemp}`;
-  }
-  );
+    item.innerHTML = `${Math.round(((currentTemp - 32) * 5) / 9)}`;
+  });
+  let maxForecastItems = document.querySelectorAll(".max-hourly-degrees");
+  maxForecastItems.forEach(function (item) {
+    let currentTemp = item.innerHTML;
+    item.innerHTML = `${Math.round(((currentTemp - 32) * 5) / 9)}`;
+  });
+}
 
 function changeToCelsius(event) {
   event.preventDefault();
